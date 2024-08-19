@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #6a1b9a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #e1bee7;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            max-width: 90%;
+        }
+        form h3 {
+            text-align: center;
+            color: #4a148c;
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            background-color: #6a1b9a;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        input[type="submit"]:hover {
+            background-color: #4a148c;
+        }
+        #thank-you-message {
+            display: none;
+            color: green;
+            margin-top: 1em;
+            text-align: center;
+        }
+        .comment {
+            border: 2px solid #4a148c;
+            padding: 1em;
+            margin: 1em 0;
+            border-radius: 8px;
+            background-color: #f3e5f5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="comment-form">
+            <h3>Tell us what you think...</h3>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="comment">Comment:</label><br>
+            <textarea id="comment-text" name="comment" rows="4" cols="50" required></textarea><br><br>
+            <input type="submit" value="SUBMIT">
+        </form>
+
+        <div id="thank-you-message">Thank you for your comment!</div>
+        <div id="comment-list"></div>
+    </div>
+
+    <script>
+        const commentForm = document.getElementById('comment-form');
+        const commentList = document.getElementById('comment-list');
+        const thankYouMessage = document.getElementById('thank-you-message');
+
+        commentForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const comment = document.getElementById('comment-text').value.trim();
+
+            if (name === '' || email === '' || comment === '') {
+                alert('Please fill out all fields.');
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            const commentHTML = `
+                <div class="comment">
+                    <p>${comment}</p>
+                    <p><strong>${name}</strong><br>
+                    <a href="mailto:${email}">${email}</a></p>
+                </div>
+            `;
+
+            commentList.innerHTML += commentHTML;
+            commentForm.reset();
+
+            showThankYouMessage();
+        });
+
+        function showThankYouMessage() {
+            thankYouMessage.style.display = 'block';
+            setTimeout(function() {
+                thankYouMessage.style.display = 'none';
+            }, 3000);
+        }
+
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+    </script>
+</body>
+</html>

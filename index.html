@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Support</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Mental Health Support</h1>
+        <nav>
+            <ul>
+                <li><a href="#common-illnesses">Common Mental Illnesses</a></li>
+                <li><a href="#activities">Activities & Best Practices</a></li>
+                <li><a href=".//chat.html">Try Our Chatbot</a></li>
+                <li id="sign-in-link"><a href="index1.html">Sign In</a></li>
+                <li id="sign-up-link"><a href="signup.html">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="common-illnesses">
+            <h2>Common Mental Illnesses</h2>
+            <div class="illness">
+                <h3>Depression</h3>
+                <p><strong>Symptoms:</strong> Persistent sadness, loss of interest, changes in appetite, fatigue.</p>
+                <p><strong>Dangers:</strong> Risk of self-harm, severe emotional distress.</p>
+                <p><strong>Ways to Handle:</strong> Therapy, medication, support groups, regular exercise.</p>
+            </div>
+            <div class="illness">
+                <h3>Anxiety</h3>
+                <p><strong>Symptoms:</strong> Excessive worry, restlessness, fatigue, muscle tension.</p>
+                <p><strong>Dangers:</strong> Impaired daily functioning, panic attacks.</p>
+                <p><strong>Ways to Handle:</strong> Cognitive-behavioral therapy, mindfulness, relaxation techniques.</p>
+            </div>
+            <!-- Add more illnesses as needed -->
+        </section>
+
+        <section id="activities">
+            <h2>Activities & Best Practices</h2>
+            <ul>
+                <li>Practice mindfulness and meditation.</li>
+                <li>Engage in regular physical exercise.</li>
+                <li>Maintain a balanced diet.</li>
+                <li>Establish a healthy sleep routine.</li>
+                <li>Connect with friends and family.</li>
+                <li>Engage in hobbies and interests.</li>
+            </ul>
+        </section>
+
+        <section id="chatbot">
+            <h2>Need Help? Send to us!</h2>
+            <p>Click the button below</p>
+            <a href="comment.html" class="btn">Feedback</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mental Health Support. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Check if the user is logged in
+        if (localStorage.getItem('loggedIn') === 'true') {
+            // Hide Sign In and Sign Up links if user is logged in
+            document.getElementById('sign-in-link').style.display = 'none';
+            document.getElementById('sign-up-link').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #6a1b9a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #e1bee7;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            max-width: 90%;
+        }
+        h2 {
+            text-align: center;
+            color: #4a148c;
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="password"], input[type="email"], select {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            background-color: #6a1b9a;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #4a148c;
+        }
+        .signin-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .signin-link a {
+            color: #4a148c;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .signin-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form onsubmit="redirectToHome(event)">
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <select required>
+                <option value="" disabled selected>Choose your gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <select required>
+                <option value="" disabled selected>Choose your age group</option>
+                <option value="under-18">Under 18 (teenager)</option>
+                <option value="18-35">18-35 (adult)</option>
+                <option value="36-and-above">36 and above (senior)</option>
+            </select>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="signin-link">
+            <p>You have an account? <a href="index1.html">Sign In</a></p>
+        </div>
+    </div>
+
+    <script>
+        function redirectToHome(event) {
+            event.preventDefault(); // Prevent the form from submitting by default
+
+            // Add data validation here if needed
+
+            // Redirect the user to the home page after signing up
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
